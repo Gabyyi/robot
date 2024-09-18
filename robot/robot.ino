@@ -44,8 +44,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  // int xAxis = analogRead(A0);
-  // int yAxis = analogRead(A1);
 
   if(radio.available()){
     radio.read(&data, sizeof(data));
@@ -55,13 +53,13 @@ void loop() {
     digitalWrite(A1, HIGH);
     digitalWrite(A2, HIGH);
     digitalWrite(A3, HIGH);
-    // Serial.print(data[0]);
-    // Serial.print(" and ");
-    // Serial.println(data[1]);
+    Serial.print(data[0]);
+    Serial.print(" and ");
+    Serial.println(data[1]);
   }
   else{
-    xAxis=505;
-    yAxis=516;
+    xAxis=512;
+    yAxis=512;
     motorSpeedA=0;
     motorSpeedB=0;
     Serial.println("no signal");
@@ -93,11 +91,6 @@ void loop() {
 
     motorSpeedA=map(yAxis, 550, 1023, 0, 255);
     motorSpeedB=map(yAxis, 550, 1023, 0, 255);
-
-    Serial.print(" Speed A: ");
-    Serial.print(motorSpeedA);
-    Serial.print(" Spees B: ");
-    Serial.println(motorSpeedB);
   }
   else{
     motorSpeedA=0;
