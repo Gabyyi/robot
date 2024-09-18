@@ -5,7 +5,6 @@
 RF24 radio(8, 9);
 const byte address[6] = "00001";
 
-// int xAxis=0, yAxis=0;
 int data[2];
 
 void setup() {
@@ -31,10 +30,8 @@ void loop() {
   Serial.print(data[0]);
   Serial.print(" yAxis: ");
   Serial.println(data[1]);
-  // delay(1000);
 
   radio.write(&data, sizeof(data));
-  // delay(200);
   bool success = radio.write(&data, sizeof(data));
   if(success) {
     Serial.println("Data sent successfully.");
